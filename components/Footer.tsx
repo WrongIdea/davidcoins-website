@@ -36,9 +36,14 @@ export default function Footer() {
           <p className="text-zinc-700 text-[10px] tracking-widest uppercase">
             © {new Date().getFullYear()} David Coins · All rights reserved
           </p>
-          <p className="text-zinc-700 text-[10px] tracking-widest uppercase">
-            Deep House · South Africa
-          </p>
+          <a
+            href="https://lotus-efkt-portfolio.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-zinc-700 hover:text-[#00C2FF] text-[10px] tracking-widest uppercase transition-colors font-black"
+          >
+            Powered by LotusEfkt
+          </a>
         </div>
       </div>
     </footer>
