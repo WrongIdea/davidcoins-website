@@ -31,19 +31,27 @@ export default function Footer() {
         {/* Divider */}
         <div className="h-px bg-gradient-to-r from-[#00C2FF]/20 via-white/5 to-transparent mb-8" />
 
-        {/* Bottom */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <p className="text-zinc-700 text-[10px] tracking-widest uppercase">
-            © {new Date().getFullYear()} David Coins · All rights reserved
-          </p>
+        {/* Powered by — prominent */}
+        <div className="flex justify-center mb-8">
           <a
             href="https://lotus-efkt-portfolio.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-zinc-700 hover:text-[#00C2FF] text-[10px] tracking-widest uppercase transition-colors font-black"
+            className="group flex items-center gap-3 border border-[#00C2FF]/30 hover:border-[#00C2FF] bg-[#00C2FF]/5 hover:bg-[#00C2FF]/10 px-6 py-3 transition-all duration-300"
           >
-            Powered by LotusEfkt
+            <span className="w-2 h-2 rounded-full bg-[#00C2FF] group-hover:scale-125 transition-transform" />
+            <span className="text-xs font-black tracking-[0.3em] uppercase text-zinc-400 group-hover:text-[#00C2FF] transition-colors">
+              Powered by LotusEfkt
+            </span>
+            <span className="text-[#00C2FF] text-xs font-black">↗</span>
           </a>
+        </div>
+
+        {/* Bottom */}
+        <div className="flex justify-center">
+          <p className="text-zinc-700 text-[10px] tracking-widest uppercase">
+            © {new Date().getFullYear()} David Coins · All rights reserved
+          </p>
         </div>
       </div>
     </footer>
