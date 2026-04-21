@@ -9,55 +9,63 @@ export default function Merch() {
   const { ref, inView } = useInView();
 
   return (
-    <section id="merch" className="py-28 px-6 border-t border-zinc-900">
-      <div className="max-w-5xl mx-auto">
-        <div className="mb-12 text-center">
-          <p className="text-xs font-black tracking-[0.3em] uppercase text-[#00C2FF] mb-4">Store</p>
-          <h2 className="text-4xl sm:text-5xl font-black text-white uppercase tracking-tight">Merch</h2>
-          <p className="text-zinc-500 mt-3 text-sm">Official David Coins merchandise — coming soon.</p>
+    <section id="merch" className="py-28 border-t border-white/5 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-8 sm:px-16">
+        <div className="mb-16">
+          <p className="text-[10px] font-black tracking-[0.4em] uppercase text-[#00C2FF] mb-3 flex items-center gap-3">
+            <span className="w-6 h-px bg-[#00C2FF]" />
+            Store
+          </p>
+          <h2 className="text-5xl sm:text-6xl font-black text-white leading-none">Merch</h2>
         </div>
 
-        <div ref={ref} className={`transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
-            {/* Merch preview */}
-            <div className="relative rounded-2xl overflow-hidden border border-zinc-800">
-              <div className="relative aspect-square">
-                <Image src="/gallery/merch1.jpeg" alt="David Coins Merch" fill className="object-cover" sizes="(max-width: 640px) 100vw, 50vw" />
-              </div>
-              <div className="absolute inset-0 bg-black/50 flex items-end p-6">
-                <div>
-                  <span className="inline-block px-3 py-1 rounded-full bg-[#00C2FF] text-black text-xs font-black uppercase tracking-widest mb-2">Coming Soon</span>
-                  <p className="text-white font-black text-lg">David Coins Collection</p>
-                </div>
-              </div>
+        <div
+          ref={ref}
+          className={`grid grid-cols-1 lg:grid-cols-5 gap-0 transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+        >
+          {/* Large image — 3 cols */}
+          <div className="lg:col-span-3 relative h-80 lg:h-[500px] overflow-hidden">
+            <Image src="/gallery/merch1.jpeg" alt="David Coins Merch" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 60vw" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#050508] via-transparent to-transparent lg:hidden" />
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#050508]/80 hidden lg:block" />
+            <div className="absolute bottom-6 left-6">
+              <span className="text-[10px] font-black tracking-widest uppercase text-black bg-[#00C2FF] px-3 py-1.5">
+                Coming Soon
+              </span>
+            </div>
+          </div>
+
+          {/* Info panel — 2 cols */}
+          <div className="lg:col-span-2 border border-white/5 bg-white/[0.02] p-8 sm:p-10 flex flex-col justify-center gap-8">
+            <div>
+              <h3 className="text-3xl sm:text-4xl font-black text-white leading-tight mb-4">
+                David Coins<br />Collection
+              </h3>
+              <p className="text-zinc-500 text-sm leading-relaxed">
+                Official merchandise — limited drops for real heads. Be the first to know when the store goes live.
+              </p>
             </div>
 
-            {/* Notify form */}
-            <div className="bg-[#0f0f1a] border border-[#00C2FF]/20 rounded-2xl p-8 flex flex-col justify-center gap-6">
-              <div>
-                <h3 className="text-white font-black text-2xl mb-2">Be First to Know</h3>
-                <p className="text-zinc-500 text-sm leading-relaxed">
-                  Drop your email and we&apos;ll notify you the moment the David Coins store goes live. Limited stock available.
-                </p>
+            {sent ? (
+              <div className="border border-[#00C2FF]/30 bg-[#00C2FF]/5 p-5">
+                <p className="text-[#00C2FF] font-black text-sm">You&apos;re in. 🔥 We&apos;ll notify you on drop day.</p>
               </div>
-              {sent ? (
-                <p className="text-[#00C2FF] font-black">You&apos;re on the list! 🔥 We&apos;ll hit you when merch drops.</p>
-              ) : (
-                <form onSubmit={(e) => { e.preventDefault(); setSent(true); setEmail(""); }} className="flex flex-col gap-3">
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={e => setEmail(e.target.value)}
-                    required
-                    placeholder="your@email.com"
-                    className="bg-zinc-900 border border-zinc-700 rounded-xl px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-[#00C2FF] text-sm transition-colors"
-                  />
-                  <button type="submit" className="py-3 rounded-xl bg-[#00C2FF] hover:bg-[#00aee6] text-black font-black text-sm tracking-widest uppercase transition-colors">
-                    Notify Me
-                  </button>
-                </form>
-              )}
-            </div>
+            ) : (
+              <form onSubmit={(e) => { e.preventDefault(); setSent(true); setEmail(""); }} className="flex flex-col gap-3">
+                <label className="text-[10px] font-black tracking-[0.3em] uppercase text-zinc-600">Drop your email</label>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={e => setEmail(e.target.value)}
+                  required
+                  placeholder="your@email.com"
+                  className="bg-transparent border border-zinc-700 focus:border-[#00C2FF] px-4 py-3 text-white placeholder-zinc-700 text-sm outline-none transition-colors"
+                />
+                <button type="submit" className="py-3 bg-[#00C2FF] hover:bg-white text-black font-black text-xs tracking-[0.3em] uppercase transition-colors">
+                  Notify Me
+                </button>
+              </form>
+            )}
           </div>
         </div>
       </div>

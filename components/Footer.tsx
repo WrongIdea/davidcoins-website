@@ -7,21 +7,39 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-zinc-900 py-12 px-6">
-      <div className="max-w-5xl mx-auto flex flex-col items-center gap-8">
-        <span className="font-black text-2xl tracking-widest text-white uppercase">
-          David<span className="text-[#00C2FF]">Coins</span>
-        </span>
-        <p className="text-xs font-black tracking-[0.3em] uppercase text-zinc-600">Deep House DJ · South Africa</p>
-        <div className="flex flex-wrap justify-center gap-6">
-          {socials.map((s) => (
-            <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
-              className="text-xs text-zinc-500 hover:text-[#00C2FF] transition-colors uppercase tracking-widest font-bold">
-              {s.label}
-            </a>
-          ))}
+    <footer className="border-t border-white/5 py-12 px-8 sm:px-16">
+      <div className="max-w-7xl mx-auto">
+        {/* Top row */}
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8 mb-10">
+          <div className="flex items-center gap-3">
+            <div className="w-6 h-6 rounded-full border border-[#00C2FF]/60 flex items-center justify-center">
+              <div className="w-1.5 h-1.5 rounded-full bg-[#00C2FF]" />
+            </div>
+            <span className="font-black text-sm tracking-[0.2em] text-white uppercase">David Coins</span>
+          </div>
+
+          <div className="flex flex-wrap gap-8">
+            {socials.map((s) => (
+              <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
+                className="text-[10px] text-zinc-600 hover:text-[#00C2FF] transition-colors uppercase tracking-[0.2em] font-black">
+                {s.label}
+              </a>
+            ))}
+          </div>
         </div>
-        <p className="text-zinc-700 text-xs">© {new Date().getFullYear()} David Coins. All rights reserved.</p>
+
+        {/* Divider */}
+        <div className="h-px bg-gradient-to-r from-[#00C2FF]/20 via-white/5 to-transparent mb-8" />
+
+        {/* Bottom */}
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <p className="text-zinc-700 text-[10px] tracking-widest uppercase">
+            © {new Date().getFullYear()} David Coins · All rights reserved
+          </p>
+          <p className="text-zinc-700 text-[10px] tracking-widest uppercase">
+            Deep House · South Africa
+          </p>
+        </div>
       </div>
     </footer>
   );
