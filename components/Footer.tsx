@@ -1,7 +1,7 @@
 const socials = [
-  { label: "Instagram", href: "#" },
-  { label: "Facebook", href: "#" },
-  { label: "SoundCloud", href: "#" },
+  { label: "Instagram", href: "https://www.instagram.com/davidcoins_15/" },
+  { label: "Facebook", href: "https://www.facebook.com/david.coins.96" },
+  { label: "Twitter / X", href: "https://x.com/djcoins" },
   { label: "Podomatic", href: "https://www.podomatic.com/search?q=SIX%20DOUBLE%20TWO%20SESSIONS" },
 ];
 
