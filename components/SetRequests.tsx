@@ -26,7 +26,10 @@ export default function SetRequests() {
       .from("set_requests")
       .select("*")
       .order("votes", { ascending: false })
-      .then(({ data }) => { if (data) setRequests(data); });
+      .then(({ data, error }) => {
+        if (error) console.error("Supabase fetch error:", error);
+        if (data) setRequests(data);
+      });
 
     const channel = supabase
       .channel("set_requests")
