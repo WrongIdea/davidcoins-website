@@ -5,6 +5,7 @@ import About from "@/components/About";
 import Events from "@/components/Events";
 import Gallery from "@/components/Gallery";
 import Merch from "@/components/Merch";
+import SetRequests from "@/components/SetRequests";
 import Booking from "@/components/Booking";
 import Footer from "@/components/Footer";
 
@@ -19,6 +20,7 @@ export default function Home() {
         <Events />
         <Gallery />
         <Merch />
+        <SetRequests />
         <Booking />
       </main>
       <Footer />
