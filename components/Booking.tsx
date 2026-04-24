@@ -15,7 +15,7 @@ export default function Booking() {
     setStatus("loading");
     try {
       const data = new FormData(e.currentTarget);
-      data.append("access_key", "3195d94a-bd16-4e43-b3dc-fa7baa2a245b");
+      data.append("access_key", "1d1eaafa-75a9-4350-b538-3b04c73dd9a8");
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         body: data,
