@@ -3,7 +3,10 @@ import { useInView } from "@/hooks/useInView";
 
 const embeds = [
   "https://podomatic.com/embed/html5/episode/11051132",
-  "https://podomatic.com/embed/html5/podcast/6046912",
+  "https://podomatic.com/embed/html5/episode/11040812",
+  "https://podomatic.com/embed/html5/episode/10969683",
+  "https://podomatic.com/embed/html5/episode/10956605",
+  "https://podomatic.com/embed/html5/episode/10898932",
 ];
 
 export default function Mixes() {
