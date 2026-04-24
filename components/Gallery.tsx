@@ -8,11 +8,11 @@ const photos = [
   { src: "/gallery/davidcoins3.jpeg", alt: "David Coins", span: "" },
   { src: "/gallery/davidcoins4.jpeg", alt: "David Coins", span: "" },
   { src: "/gallery/davidcoins5.jpeg", alt: "David Coins", span: "" },
-  { src: "/gallery/1000734164.jpg", alt: "David Coins", span: "" },
-  { src: "/gallery/1000734165.jpg", alt: "David Coins", span: "" },
-  { src: "/gallery/1000734166.jpg", alt: "David Coins", span: "" },
-  { src: "/gallery/1000734167.jpg", alt: "David Coins", span: "" },
-  { src: "/gallery/1000734168.jpg", alt: "David Coins", span: "" },
+  { src: "/gallery/davidcoins6.jpg", alt: "David Coins", span: "" },
+  { src: "/gallery/davidcoins7.jpg", alt: "David Coins", span: "" },
+  { src: "/gallery/davidcoins8.jpg", alt: "David Coins", span: "" },
+  { src: "/gallery/davidcoins9.jpg", alt: "David Coins", span: "" },
+  { src: "/gallery/davidcouins10.jpg", alt: "David Coins", span: "" },
 ];
 
 export default function Gallery() {
