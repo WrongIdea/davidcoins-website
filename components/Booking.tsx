@@ -14,9 +14,11 @@ export default function Booking() {
     e.preventDefault();
     setStatus("loading");
     try {
-      const res = await fetch("https://formspree.io/f/YOUR_FORM_ID", {
+      const data = new FormData(e.currentTarget);
+      data.append("access_key", "3195d94a-bd16-4e43-b3dc-fa7baa2a245b");
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        body: new FormData(e.currentTarget),
+        body: data,
         headers: { Accept: "application/json" },
       });
       if (res.ok) { setStatus("success"); (e.target as HTMLFormElement).reset(); }
