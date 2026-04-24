@@ -8,6 +8,11 @@ const photos = [
   { src: "/gallery/davidcoins3.jpeg", alt: "David Coins", span: "" },
   { src: "/gallery/davidcoins4.jpeg", alt: "David Coins", span: "" },
   { src: "/gallery/davidcoins5.jpeg", alt: "David Coins", span: "" },
+  { src: "/gallery/1000734164.jpg", alt: "David Coins", span: "" },
+  { src: "/gallery/1000734165.jpg", alt: "David Coins", span: "" },
+  { src: "/gallery/1000734166.jpg", alt: "David Coins", span: "" },
+  { src: "/gallery/1000734167.jpg", alt: "David Coins", span: "" },
+  { src: "/gallery/1000734168.jpg", alt: "David Coins", span: "" },
 ];
 
 export default function Gallery() {
@@ -26,7 +31,7 @@ export default function Gallery() {
 
         <div
           ref={ref}
-          className={`grid grid-cols-2 sm:grid-cols-3 grid-rows-3 gap-2 h-[600px] sm:h-[700px] transition-all duration-700 ${inView ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}
+          className={`grid grid-cols-2 sm:grid-cols-3 auto-rows-[240px] gap-2 transition-all duration-700 ${inView ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}
         >
           {photos.map((p, i) => (
             <div key={i} className={`relative overflow-hidden group ${p.span}`}>
