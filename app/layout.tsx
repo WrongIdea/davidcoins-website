@@ -20,6 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${geist.variable} scroll-smooth`} suppressHydrationWarning>
       <body className="min-h-screen bg-[#08080f] text-zinc-200 antialiased" suppressHydrationWarning>
         {children}
+        {/* Vercel Analytics — tracks page views */}
         <Analytics />
       </body>
     </html>
