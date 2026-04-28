@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-geist-sans" });
@@ -19,6 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${geist.variable} scroll-smooth`} suppressHydrationWarning>
       <body className="min-h-screen bg-[#08080f] text-zinc-200 antialiased" suppressHydrationWarning>
         {children}
+        <Analytics />
       </body>
     </html>
   );
