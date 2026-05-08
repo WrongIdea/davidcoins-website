@@ -1,3 +1,4 @@
+// Booking form — submissions handled via Web3Forms (no backend needed)
 "use client";
 import { useState } from "react";
 import { useInView } from "@/hooks/useInView";
