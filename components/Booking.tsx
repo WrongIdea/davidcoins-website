@@ -74,6 +74,7 @@ export default function Booking() {
               </button>
             </div>
           ) : (
+            
             <form onSubmit={handleSubmit} className="flex flex-col gap-8">
               <div className="grid grid-cols-2 gap-8">
                 <div>
