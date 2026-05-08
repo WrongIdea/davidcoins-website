@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import Mixes from "@/components/Mixes";
 import About from "@/components/About";
 import Events from "@/components/Events";
+import PoolWrapper from "@/components/PoolWrapper";
 import Gallery from "@/components/Gallery";
 import Merch from "@/components/Merch";
 import SetRequestsWrapper from "@/components/SetRequestsWrapper";
@@ -18,6 +19,7 @@ export default function Home() {
         <Mixes />
         <About />
         <Events />
+        <PoolWrapper />
         <Gallery />
         <Merch />
         <SetRequestsWrapper />
