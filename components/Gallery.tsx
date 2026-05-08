@@ -28,7 +28,7 @@ export default function Gallery() {
       .from("gallery")
       .select("*")
       .order("display_order", { ascending: true })
-      .then(({ data }) => { if (data && data.length > 0) setPhotos([...fallback, ...data]); });
+      .then(({ data }) => { if (data && data.length > 0) setPhotos([...data, ...fallback]); });
   }, []);
 
   return (
