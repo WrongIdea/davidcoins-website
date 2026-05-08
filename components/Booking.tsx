@@ -11,7 +11,7 @@ export default function Booking() {
 
   const inputClass = "w-full bg-transparent border-b border-zinc-700 focus:border-[#00C2FF] px-0 py-3 text-white placeholder-zinc-700 text-sm outline-none transition-colors";
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.SyntheticEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("loading");
     try {
