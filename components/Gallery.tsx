@@ -1,22 +1,35 @@
 "use client";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import { useInView } from "@/hooks/useInView";
+import { supabase } from "@/lib/supabase";
 
-const photos = [
-  { src: "/gallery/davidcoins1.jpeg", alt: "David Coins", span: "col-span-2 row-span-2" },
-  { src: "/gallery/davidcoins2.jpeg", alt: "David Coins", span: "" },
-  { src: "/gallery/davidcoins3.jpeg", alt: "David Coins", span: "" },
-  { src: "/gallery/davidcoins4.jpeg", alt: "David Coins", span: "" },
-  { src: "/gallery/davidcoins5.jpeg", alt: "David Coins", span: "" },
-  { src: "/gallery/davidcoins6.jpg", alt: "David Coins", span: "" },
-  { src: "/gallery/davidcoins7.jpg", alt: "David Coins", span: "" },
-  { src: "/gallery/davidcoins8.jpg", alt: "David Coins", span: "" },
-  { src: "/gallery/davidcoins9.jpg", alt: "David Coins", span: "" },
-  { src: "/gallery/davidcouins10.jpg", alt: "David Coins", span: "" },
+type Photo = { id: string; url: string; alt: string; span: string };
+
+const fallback: Photo[] = [
+  { id: "1", url: "/gallery/davidcoins1.jpeg", alt: "David Coins", span: "col-span-2 row-span-2" },
+  { id: "2", url: "/gallery/davidcoins2.jpeg", alt: "David Coins", span: "" },
+  { id: "3", url: "/gallery/davidcoins3.jpeg", alt: "David Coins", span: "" },
+  { id: "4", url: "/gallery/davidcoins4.jpeg", alt: "David Coins", span: "" },
+  { id: "5", url: "/gallery/davidcoins5.jpeg", alt: "David Coins", span: "" },
+  { id: "6", url: "/gallery/davidcoins6.jpg", alt: "David Coins", span: "" },
+  { id: "7", url: "/gallery/davidcoins7.jpg", alt: "David Coins", span: "" },
+  { id: "8", url: "/gallery/davidcoins8.jpg", alt: "David Coins", span: "" },
+  { id: "9", url: "/gallery/davidcoins9.jpg", alt: "David Coins", span: "" },
+  { id: "10", url: "/gallery/davidcouins10.jpg", alt: "David Coins", span: "" },
 ];
 
 export default function Gallery() {
   const { ref, inView } = useInView();
+  const [photos, setPhotos] = useState<Photo[]>(fallback);
+
+  useEffect(() => {
+    supabase
+      .from("gallery")
+      .select("*")
+      .order("display_order", { ascending: true })
+      .then(({ data }) => { if (data && data.length > 0) setPhotos(data); });
+  }, []);
 
   return (
     <section id="gallery" className="py-28 px-8 sm:px-16 border-t border-white/5">
@@ -33,10 +46,10 @@ export default function Gallery() {
           ref={ref}
           className={`grid grid-cols-2 sm:grid-cols-3 auto-rows-[240px] gap-2 transition-all duration-700 ${inView ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}
         >
-          {photos.map((p, i) => (
-            <div key={i} className={`relative overflow-hidden group ${p.span}`}>
+          {photos.map((p) => (
+            <div key={p.id} className={`relative overflow-hidden group ${p.span}`}>
               <Image
-                src={p.src}
+                src={p.url}
                 alt={p.alt}
                 fill
                 className="object-cover group-hover:scale-110 transition-transform duration-700"

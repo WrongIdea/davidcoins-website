@@ -1,12 +1,25 @@
 "use client";
+import { useEffect, useState } from "react";
 import { useInView } from "@/hooks/useInView";
+import { supabase } from "@/lib/supabase";
 
-const events = [
-  { date: "TBA", month: "2025", name: "Six Double Two Sessions — Live", venue: "TBA", city: "South Africa", tickets: null },
+type Event = { id: string; date: string; month: string; name: string; venue: string; city: string; tickets: string | null };
+
+const fallback: Event[] = [
+  { id: "0", date: "TBA", month: "2025", name: "Six Double Two Sessions — Live", venue: "TBA", city: "South Africa", tickets: null },
 ];
 
 export default function Events() {
   const { ref, inView } = useInView();
+  const [events, setEvents] = useState<Event[]>(fallback);
+
+  useEffect(() => {
+    supabase
+      .from("events")
+      .select("*")
+      .order("display_order", { ascending: true })
+      .then(({ data }) => { if (data && data.length > 0) setEvents(data); });
+  }, []);
 
   return (
     <section id="events" className="py-28 px-8 sm:px-16 border-t border-white/5">
